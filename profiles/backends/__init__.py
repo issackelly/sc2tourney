@@ -6,7 +6,7 @@ class Sc2Backend(DefaultBackend):
 
     def register(self, request, **kwargs):
         user = super(Sc2Backend, self).register(request, **kwargs)
-        player = Player.objects.get_or_create(
+        player, created = Player.objects.get_or_create(
             username=user.username,
         )
         player.user = user
