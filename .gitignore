@@ -6,3 +6,4 @@ sc2tourney/site_media/static
 sc2tourney/site_media/media
 production_settings.py
 env
+sc2tourney.db
