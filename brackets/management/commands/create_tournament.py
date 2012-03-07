@@ -68,7 +68,7 @@ class Command(LabelCommand):
         winners_round_2 = Round.objects.create(
             bracket=winners,
             name='Round 2',
-            order=0
+            order=1
         )
 
         Match.objects.create(
@@ -83,7 +83,7 @@ class Command(LabelCommand):
         losers_round_2 = Round.objects.create(
             bracket=losers,
             name='Round 2',
-            order=0
+            order=1
         )
 
         Match.objects.create(
@@ -98,7 +98,7 @@ class Command(LabelCommand):
         winners_round_3 = Round.objects.create(
             bracket=winners,
             name='Round 3',
-            order=0
+            order=2
         )
 
         Match.objects.create(
@@ -109,7 +109,7 @@ class Command(LabelCommand):
         losers_round_3 = Round.objects.create(
             bracket=losers,
             name='Round 3',
-            order=0
+            order=2
         )
 
         Match.objects.create(
@@ -120,7 +120,7 @@ class Command(LabelCommand):
         final_round = Round.objects.create(
             bracket=winners,
             name='Final',
-            order=0
+            order=3
         )
 
         Match.objects.create(

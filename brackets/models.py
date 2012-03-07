@@ -76,7 +76,7 @@ class Round(models.Model):
     order = models.PositiveIntegerField(default=0, help_text='Ordering within the tournament.')
 
     class Meta:
-        ordering = ['bracket', 'slug', 'order']
+        ordering = ['bracket', 'order']
 
     def __unicode__(self):
         return u"%s - %s" % (self.bracket, self.name)
