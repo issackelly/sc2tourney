@@ -8,10 +8,11 @@ def as_signal(sender, instance, created, raw, **kwargs):
 def parse_replay(match):
 
     match.players.all().delete()
-    match.map, created = Map.objects.get_or_create(
-        name=match.replay.map
+    match.mapfield, created = Map.objects.get_or_create(
+        name=match.replay.map_name,
     )
-
+    match.duration = match.replay.game_length.seconds
+    match.gateway = match.replay.gateway
 
     for p in match.replay.players:
         player, created = Player.objects.get_or_create(
@@ -34,7 +35,8 @@ def parse_replay(match):
             player=player,
             result=result,
             random=random,
-            color='rgb(%(r)s, %(g)s, %(b)s)' % p.color
+            color='rgb(%(r)s, %(g)s, %(b)s)' % p.color,
+            race=p.play_race,
         )
 
     match.save()

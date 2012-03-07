@@ -4,9 +4,6 @@ import os
 PROJECT_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(PROJECT_DIR, 'site_media')
 
-print PROJECT_DIR
-print PUBLIC_DIR
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
