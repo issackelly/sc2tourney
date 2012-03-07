@@ -129,12 +129,22 @@ INSTALLED_APPS = [
     'pagination',
     'registration',
     'south',
+    'djcelery',
+    'celery',
 
 
     'profiles',
     'sc2match',
     'brackets',
 ]
+
+CELERY_ALWAYS_EAGER = True
+
+#CELERY_ALWAYS_EAGER = False
+#CELERY_RESULT_BACKEND = "redis"
+#CELERY_REDIS_HOST = "localhost"
+#CELERY_REDIS_DB = 0
+#CELERY_REDIS_MAX_CONNECTIONS = 3
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -177,8 +187,5 @@ try:
 except ImportError:
     pass
 
-try:
-   from production_settings import *
-except ImportError:
-    pass
-
+import djcelery
+djcelery.setup_loader()

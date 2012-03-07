@@ -1,12 +1,15 @@
-from sc2match.models import PlayerResult, Map #Match
+from sc2match.models import PlayerResult, Map, Match
 from profiles.models import Player
+from celery.decorators import task
+
 
 def as_signal(sender, instance, created, raw, **kwargs):
     if created:
-        parse_replay(instance)
+        parse_replay(instance.id)
 
-def parse_replay(match):
-
+@task
+def parse_replay(match_id):
+    match = Match.objects.get(id=match_id)
     match.players.all().delete()
     match.mapfield, created = Map.objects.get_or_create(
         name=match.replay.map_name,

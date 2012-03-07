@@ -3,14 +3,18 @@
 -e git+https://github.com/pinax/pinax-theme-bootstrap.git#egg=Pinax_Theme_Bootstrap
 -e git://github.com/django-debug-toolbar/django-debug-toolbar.git#egg=debug_toolbar
 -e hg+https://bitbucket.org/andrewgodwin/south@126a1ad2ee9d#egg=South
--e git+https://github.com/issackelly/sc2reader#egg=sc2reader
+-e git+https://github.com/issackelly/sc2reader@new_data#egg=sc2reader
 -e hg+https://bitbucket.org/ubernostrum/django-registration#egg=django_registration
 
 django-pagination
 psycopg2
 gunicorn
+celery
+redis
 
 PIL
 mercurial==2.0.2
 
-# for reading replays
+boto==2.0
+django-ses==0.2
+django-celery
