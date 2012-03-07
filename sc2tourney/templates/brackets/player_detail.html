@@ -1,0 +1,11 @@
+{% extends "brackets/base.html" %}
+
+{% block body %}
+<h2>{{ player.nickname }}</h2>
+
+<div>
+    In <a href="{{ tournament.get_absolute_url }}">{{ tournament.name }}</a>
+</div>
+
+<h2>TODO - Wins &amp; Losses</h2>
+{% endblock %}

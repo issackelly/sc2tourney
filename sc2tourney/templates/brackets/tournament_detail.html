@@ -1,0 +1,45 @@
+{% extends "brackets/base.html" %}
+
+{% block body %}
+<h2>{{ tournament.name }}</h2>
+
+{% for bracket in tournament.brackets.all %}
+    <div class="bracket">
+        <div class="bracket_name">{{ bracket.name }}</div>
+
+        {% for round in bracket.rounds.all %}
+            <div class="round">
+                <div class="round_name">{{ round.name }}</div>
+
+                {% for match in round.matches.all %}
+                    <div class="match">
+                        <div class="player_1">
+                        {% if match.player_1 %}
+                            <span class="player_details"><a href="{% url tournament_player_detail tournament_slug=tournament.slug,player_slug=match.player_1.slug %}">{{ match.player_1.nickname }}</a></span>
+                            <span class="player_seed">{{ match.player_1.seed }}</span>
+                        {% endif %}
+                        </div>
+                        <div class="player_2">
+                        {% if match.player_2 %}
+                            <span class="player_details"><a href="{% url tournament_player_detail tournament_slug=tournament.slug,player_slug=match.player_2.slug %}">{{ match.player_2.nickname }}</a></span>
+                            <span class="player_seed">{{ match.player_2.seed }}</span>
+                        {% endif %}
+                        </div>
+                        <div class="winner">
+                            {% if match.winner %}
+                                <span class="player_details"><a href="{% url tournament_player_detail tournament_slug=tournament.slug,player_slug=match.winner.slug %}">{{ match.winner.nickname }}</a></span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No matches available.</p>
+                {% endfor %}
+            </div>
+        {% empty %}
+            <p>No rounds available.</p>
+        {% endfor %}
+    </div>
+{% empty %}
+    <p>No brackets available. Check back soon.</p>
+{% endfor %}
+{% endblock %}
