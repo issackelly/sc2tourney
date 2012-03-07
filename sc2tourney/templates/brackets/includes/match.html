@@ -1,0 +1,20 @@
+<div class="match">
+    <h4><a href="{{ match.get_absolute_url }}">Details</a></h4>
+    <div class="player_1">
+    {% if match.player_1 %}
+        <span class="player_details"><a href="{% url tournament_player_detail tournament_slug=tournament.slug,player_slug=match.player_1.slug %}">{{ match.player_1.nickname }}</a></span>
+        <span class="player_seed">{{ match.player_1.seed }}</span>
+    {% endif %}
+    </div>
+    <div class="player_2">
+    {% if match.player_2 %}
+        <span class="player_details"><a href="{% url tournament_player_detail tournament_slug=tournament.slug,player_slug=match.player_2.slug %}">{{ match.player_2.nickname }}</a></span>
+        <span class="player_seed">{{ match.player_2.seed }}</span>
+    {% endif %}
+    </div>
+    <div class="winner">
+        {% if match.winner %}
+            <span class="player_details"><a href="{% url tournament_player_detail tournament_slug=tournament.slug,player_slug=match.winner.slug %}">{{ match.winner.nickname }}</a></span>
+        {% endif %}
+    </div>
+</div>

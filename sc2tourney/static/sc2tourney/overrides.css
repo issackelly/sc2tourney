@@ -31,6 +31,11 @@ div.main_container a {
     text-shadow: #FFFFFF 0px 0px 2px;
 }
 
+div.main_container div.tournament_wrapper a {
+    color: #000000;
+    text-shadow: #FFFFFF 0px 0px 0px;
+}
+
 h2 {
     font-size: 30px;
 }
@@ -45,7 +50,7 @@ h3 {
     color: #FFFFFF;
     margin-top: 30px;
     padding: 10px;
-    position: fixed;
+    /* position: fixed; */
     text-align: center;
     width: 100%;
 }

@@ -69,4 +69,8 @@
 {% endblock %}
 
 
-{% block footer %}&copy; 2010-{% now "Y" %} Issac Kelly and Daniel Lindsley. <a href="{% url 'home' %}">Home</a>{% endblock %}
+{% block footer %}
+    &copy; 2010-{% now "Y" %} Issac Kelly and Daniel Lindsley. <br>
+    All StarCraft II related imagery property of Blizzard Entertainment.<br>
+    <a href="{% url 'home' %}">Home</a>
+{% endblock %}
