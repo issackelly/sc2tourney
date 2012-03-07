@@ -11,10 +11,9 @@ class Sc2Backend(DefaultBackend):
         )
         player.user = user
         if not player.battle_net_url:
-            player.battle_net_url = kwargs['bnet_url']
+            player.battle_net_url = kwargs['url']
         player.save()
 
     def get_form_class(self):
-        print 'derp'
         return Sc2RegForm
 
