@@ -125,6 +125,9 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'pinax_theme_bootstrap',
     'gunicorn',
+    'south',
+
+    'brackets',
 ]
 
 # A sample logging configuration. The only tangible logging
