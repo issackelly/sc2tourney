@@ -25,3 +25,9 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += patterns('',
     url(r"(?P<path>.*)", direct)
 )
+
+
+from sc2tourney.sc2match.tasks import as_signal
+from sc2tourney.sc2match.models import Match
+from django.db.models import post_save
+post_save.connect(Match, as_signal)

@@ -125,7 +125,12 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'pinax_theme_bootstrap',
     'gunicorn',
+
+    'sc2tourney.profiles',
+    'sc2tourney.sc2match',
 ]
+
+CELERY_ALWAYS_EAGER = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

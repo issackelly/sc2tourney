@@ -4,3 +4,10 @@
 
 psycopg2
 gunicorn
+
+Celery
+
+# for reading replays
+mpyq
+adjutant
+
