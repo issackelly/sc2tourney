@@ -29,6 +29,13 @@ class Player(models.Model):
     def __unicode__(self):
         return self.player
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('tournament_player_detail', [], {
+            'tournament_slug': self.tournament.slug,
+            'player_pk': self.pk
+        })
+
 
 class Tournament(models.Model):
     name = models.CharField(max_length=255)
@@ -47,6 +54,12 @@ class Tournament(models.Model):
             self.slug = slugify(self.name)
 
         return super(Tournament, self).save(*args, **kwargs)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('tournament_detail', [], {
+            'tournament_slug': self.slug,
+        })
 
 
 class Bracket(models.Model):
@@ -68,6 +81,13 @@ class Bracket(models.Model):
 
         return super(Bracket, self).save(*args, **kwargs)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('bracket_detail', [], {
+            'tournament_slug': self.tournament.slug,
+            'bracket_slug': self.slug,
+        })
+
 
 class Round(models.Model):
     bracket = models.ForeignKey(Bracket, related_name='rounds')
@@ -86,6 +106,14 @@ class Round(models.Model):
             self.slug = slugify(self.name)
 
         return super(Round, self).save(*args, **kwargs)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('round_detail', [], {
+            'tournament_slug': self.bracket.tournament.slug,
+            'bracket_slug': self.bracket.slug,
+            'round_slug': self.slug
+        })
 
 
 
@@ -140,3 +168,12 @@ class Match(models.Model):
 
     def unplayed(self):
         return self.mark_outcome('unplayed')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('match_detail', [], {
+            'tournament_slug': self.the_round.bracket.tournament.slug,
+            'bracket_slug': self.the_round.bracket.slug,
+            'round_slug': self.the_round.slug,
+            'match_pk': self.pk
+        })
