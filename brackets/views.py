@@ -1,5 +1,3 @@
-from django.db.models import Q
-from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from .models import Player, Tournament, Bracket, Round, Match
 
@@ -47,12 +45,7 @@ def match_detail(request, tournament_slug, bracket_slug, round_slug, match_pk):
 
 def player_detail(request, tournament_slug, player_slug):
     tournament = get_object_or_404(Tournament, slug=tournament_slug)
-
-    try:
-        player = Player.objects.filter(Q(matches_1__the_round__bracket__tournament__slug=tournament_slug) | Q(matches_2__the_round__bracket__tournament__slug=tournament_slug)).get(slug=player_slug)
-    except (Player.DoesNotExist, Player.MultipleObjectsReturned) as e:
-        raise Http404("Nope, sorry.")
-
+    player = get_object_or_404(Player, tournament__slug=tournament_slug, slug=player_slug)
     return render(request, 'brackets/player_detail.html', {
         'tournament': tournament,
         'player': player,
