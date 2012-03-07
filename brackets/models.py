@@ -19,24 +19,15 @@ class Player(models.Model):
 
     player = models.ForeignKey(User, related_name='tournament_profile')
     tournament = models.ForeignKey('Tournament')
-    nickname = models.CharField(max_length=128, db_index=True)
-    slug = models.SlugField()
     seed = models.PositiveIntegerField(default=0)
     league = models.CharField(max_length=64, blank=True, default='', choices=LEAGUES)
     rank = models.IntegerField(blank=True, default=0, help_text='League ranking, not specific to the tournament.')
 
     class Meta:
         ordering = ['player']
-        unique_together = []
 
     def __unicode__(self):
-        return self.nickname
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.nickname)
-
-        return super(Player, self).save(*args, **kwargs)
+        return self.player
 
 
 class Tournament(models.Model):

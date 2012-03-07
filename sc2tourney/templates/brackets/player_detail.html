@@ -1,7 +1,7 @@
 {% extends "brackets/base.html" %}
 
 {% block body %}
-<h2>{{ player.nickname }}</h2>
+<h2>{{ player.player.username }}</h2>
 
 <div>
     In <a href="{{ tournament.get_absolute_url }}">{{ tournament.name }}</a>
