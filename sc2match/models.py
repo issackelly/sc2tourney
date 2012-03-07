@@ -1,18 +1,24 @@
 from django.db import models
-from sc2tourney.profiles.models import Player
+from profiles.models import Player
 
-import datetime
 from sc2reader.resources import Replay
+from django.utils import timezone
 
 
 
 class PlayerResult(models.Model):
+    RACES = (
+        ("terran", "Terran"),
+        ("protoss", "Protoss"),
+        ("zerg", "Zerg")
+    )
+
     player = models.ForeignKey(Player)
     match = models.ForeignKey('Match')
     result = models.NullBooleanField(default=None)
     color = models.CharField(max_length=32)
     random = models.BooleanField(default=False)
-    race = models.ChoiceField(choices=["Terran", "Protoss", "Zerg"])
+    race = models.CharField(choices=RACES, max_length=8)
 
 
 class Map(models.Model):
@@ -24,7 +30,7 @@ class Map(models.Model):
 class Match(models.Model):
     players = models.ManyToManyField(Player, through=PlayerResult)
 
-    created = models.DateTimeField(default=datetime.datetime.now, editable=False)
+    created = models.DateTimeField(default=timezone.now, editable=False)
     modified = models.DateTimeField(editable=False)
     replay_file = models.FileField(upload_to="replay_files/%Y/%m/%d")
     mapfield = models.ForeignKey(Map, null=True)
@@ -63,5 +69,5 @@ class Match(models.Model):
         return loser
 
     def save(self, *args, **kwargs):
-        self.modified = datetime.datetime.now()
+        self.modified = timezone.now()
         super(Match, self).save(*args, **kwargs)

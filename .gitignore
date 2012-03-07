@@ -5,3 +5,4 @@ local_settings.py
 site_media/static
 site_media/media
 production_settings.py
+env

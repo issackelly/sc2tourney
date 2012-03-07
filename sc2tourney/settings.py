@@ -125,9 +125,11 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'pinax_theme_bootstrap',
     'gunicorn',
+    'south',
 
-    'sc2tourney.profiles',
-    'sc2tourney.sc2match',
+    'profiles',
+    'sc2match',
+    'brackets',
 ]
 
 CELERY_ALWAYS_EAGER = True
