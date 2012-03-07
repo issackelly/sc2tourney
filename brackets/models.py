@@ -99,8 +99,8 @@ OUTCOMES = [
 
 class Match(models.Model):
     the_round = models.ForeignKey(Round, related_name='matches')
-    player_1 = models.ForeignKey(Player, related_name='matches_1')
-    player_2 = models.ForeignKey(Player, related_name='matches_2')
+    player_1 = models.ForeignKey(Player, related_name='matches_1', null=True, blank=True)
+    player_2 = models.ForeignKey(Player, related_name='matches_2', null=True, blank=True)
     start_date = models.DateTimeField(default=timezone.now)
     end_date = models.DateTimeField(default=timezone.now)
     order = models.PositiveIntegerField(default=0, help_text='Ordering within the round.')
