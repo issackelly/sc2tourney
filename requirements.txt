@@ -1,0 +1,6 @@
+#django>=1.4
+-e git+https://github.com/django/django.git#egg=Django
+-e git+https://github.com/pinax/pinax-theme-bootstrap.git#egg=Pinax_Theme_Bootstrap
+
+psycopg2
+gunicorn
