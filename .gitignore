@@ -2,7 +2,7 @@
 *.pyo
 .DS_Store
 local_settings.py
-site_media/static
-site_media/media
+sc2tourney/site_media/static
+sc2tourney/site_media/media
 production_settings.py
 env

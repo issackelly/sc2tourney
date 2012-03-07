@@ -1,7 +1,7 @@
 from django.db import models
 from profiles.models import Player
 
-from sc2reader.resources import Replay
+import sc2reader
 from django.utils import timezone
 
 
@@ -13,8 +13,8 @@ class PlayerResult(models.Model):
         ("zerg", "Zerg")
     )
 
-    player = models.ForeignKey(Player)
-    match = models.ForeignKey('Match')
+    player = models.ForeignKey(Player, related_name="matches")
+    match = models.ForeignKey('Match', related_name="players")
     result = models.NullBooleanField(default=None)
     color = models.CharField(max_length=32)
     random = models.BooleanField(default=False)
@@ -28,13 +28,11 @@ class Map(models.Model):
 
 
 class Match(models.Model):
-    players = models.ManyToManyField(Player, through=PlayerResult)
-
     created = models.DateTimeField(default=timezone.now, editable=False)
     modified = models.DateTimeField(editable=False)
     replay_file = models.FileField(upload_to="replay_files/%Y/%m/%d")
-    mapfield = models.ForeignKey(Map, null=True)
-    duration = models.PositiveIntegerField(null=True)
+    mapfield = models.ForeignKey(Map, null=True, editable=False)
+    duration = models.PositiveIntegerField(null=True, editable=False)
 
     def __init__(self, *args, **kwargs):
         self._replay = None
@@ -43,30 +41,18 @@ class Match(models.Model):
     @property
     def replay(self):
         if not self._replay:
-            try:
-                self._replay = Replay(self.replay_file.open())
-            except IOError:
-                return None
+            self._replay = sc2reader.load_replay(self.replay_file.file)
         return self._replay
 
 
     @property
-    def winner(self):
-        winner = None
-        try:
-            winner = self.players.filter(result=True)[0]
-        except IndexError:
-            pass
-        return winner
+    def winners(self):
+        return self.players.filter(result=True)
 
     @property
-    def loser(self):
-        loser = None
-        try:
-            loser = self.players.filter(result=False)[0]
-        except IndexError:
-            pass
-        return loser
+    def losers(self):
+        return self.players.filter(result=False)
+
 
     def save(self, *args, **kwargs):
         self.modified = timezone.now()

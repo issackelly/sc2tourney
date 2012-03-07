@@ -3,12 +3,11 @@
 -e git+https://github.com/pinax/pinax-theme-bootstrap.git#egg=Pinax_Theme_Bootstrap
 -e git://github.com/django-debug-toolbar/django-debug-toolbar.git#egg=debug_toolbar
 -e hg+https://bitbucket.org/andrewgodwin/south@126a1ad2ee9d#egg=South
--e git+https://github.com/GraylinKim/sc2reader#egg=sc2reader
+-e git+https://github.com/issackelly/sc2reader#egg=sc2reader
 
 psycopg2
 gunicorn
 
-Celery
 PIL
 mercurial==2.0.2
 

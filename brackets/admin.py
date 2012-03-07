@@ -3,10 +3,7 @@ from .models import Player, Tournament, Bracket, Round, Match
 
 
 class PlayerAdmin(admin.ModelAdmin):
-    prepopulated_fields = {
-        'slug': ['nickname'],
-    }
-
+    pass
 
 class TournamentAdmin(admin.ModelAdmin):
     prepopulated_fields = {

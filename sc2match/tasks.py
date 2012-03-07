@@ -1,35 +1,30 @@
-from sc2tourney.sc2match.models import Match, PlayerResult, Map
-from sc2tourney.profiles.models import Player
-from celery.task import task
+from sc2match.models import PlayerResult, Map #Match
+from profiles.models import Player
 
-
-def as_signal(sender, instance, created, raw):
+def as_signal(sender, instance, created, raw, **kwargs):
     if created:
-        parse_replay(instance.id)
+        parse_replay(instance)
 
-
-@task
-def parse_replay(match_id):
-    match = Match.objects.get(match_id)
+def parse_replay(match):
 
     match.players.all().delete()
-    match.map = Map.objects.get_or_create(
+    match.map, created = Map.objects.get_or_create(
         name=match.replay.map
     )
 
 
     for p in match.replay.players:
-        player = Player.objects.get_or_create(
-            username=p['name'],
-            url=p['url']
+        player, created = Player.objects.get_or_create(
+            username=p.name,
+            battle_net_url=p.url
         )
         result = None
-        if p['result'] == 'Win':
+        if p.result == 'Win':
             result = True
-        elif p['result'] == 'Loss':
+        elif p.result == 'Loss':
             result = False
 
-        if p['pick_race'] == 'Random':
+        if p.pick_race == 'Random':
             random=True
         else:
             random=False
@@ -39,7 +34,7 @@ def parse_replay(match_id):
             player=player,
             result=result,
             random=random,
-            color='rgb(%(r)s, %(g)s, %(b)s)' % p['color']
+            color='rgb(%(r)s, %(g)s, %(b)s)' % p.color
         )
 
     match.save()

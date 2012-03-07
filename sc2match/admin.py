@@ -1,8 +1,12 @@
 from django.contrib import admin
-from sc2tourney.sc2match.models import Match, PlayerResult
+from .models import Match, PlayerResult
 
 class MatchAdmin(admin.ModelAdmin):
     list_display = ['id']
+    readonly_fields = [
+        'mapfield',
+        'duration',
+    ]
 
 class PlayerResultAdmin(admin.ModelAdmin):
     list_display = ['player', 'match']

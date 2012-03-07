@@ -4,6 +4,9 @@ import os
 PROJECT_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(PROJECT_DIR, 'site_media')
 
+print PROJECT_DIR
+print PUBLIC_DIR
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -132,8 +135,6 @@ INSTALLED_APPS = [
     'brackets',
 ]
 
-CELERY_ALWAYS_EAGER = True
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -167,11 +168,14 @@ ADD_TO_CONTEXT = {
     "DEBUG": DEBUG
 }
 
+
 try:
-    LOCAL_SETTINGS
-except NameError:
-    try:
-        from local_settings import *
-        from production_settings import *
-    except ImportError:
-        pass
+    from local_settings import *
+except ImportError:
+    pass
+
+try:
+   from production_settings import *
+except ImportError:
+    pass
+
