@@ -86,6 +86,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pagination.middleware.PaginationMiddleware'
 ]
 
 ROOT_URLCONF = 'sc2tourney.urls'
@@ -125,7 +126,10 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'pinax_theme_bootstrap',
     'gunicorn',
+    'pagination',
+    'registration',
     'south',
+
 
     'profiles',
     'sc2match',
@@ -164,6 +168,8 @@ LOGGING = {
 ADD_TO_CONTEXT = {
     "DEBUG": DEBUG
 }
+
+ACCOUNT_ACTIVATION_DAYS = 1
 
 
 try:

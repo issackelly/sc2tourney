@@ -17,7 +17,38 @@
 {% endif %}
 
 
-{% block head_title_base %}{% block head_title %}{% endblock %}{% if SITE_NAME %} : {{ SITE_NAME }}{% endif %}{% endblock %}
+{% block head_title_base %}{% block head_title %}{% endblock %}Starcraft II Tournament{% endblock %}
+
+        {% block topbar_base %}
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        {% block topbar %}
+                            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </a>
+                            {% block site_brand %}<a class="brand" href="/">Starcraft II Tournament</a>{% endblock %}
+                            <div class="nav-collapse">
+                                {% block nav %}
+                                        <ul class="nav">
+                                            <li><a href="/t/pycon">Bracket</a></li>
+                                            <li><a href="/sc2/match/">Latest Matches</a></li>
+                                            <li><a href="/about/">About</a></li>
+                                            {% if not request.user.is_authenticated %}
+                                                <li><a href="/accounts/register/">Register</a></li>
+                                            {% else %}
+                                                <li><a href="/accounts/logout/">Logout</a></li>
+                                            {% endif %}
+                                        </ul>
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
 
 
 {% block body_base %}
@@ -35,4 +66,4 @@
 {% endblock %}
 
 
-{% block footer %}&copy; 2010-{% now "Y" %} {{ SITE_NAME }}. <a href="{% url 'home' %}">Home</a>{% endblock %}
+{% block footer %}&copy; 2010-{% now "Y" %} Issac Kelly and Daniel Lindsley. <a href="{% url 'home' %}">Home</a>{% endblock %}

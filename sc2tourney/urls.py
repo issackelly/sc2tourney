@@ -8,8 +8,12 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    (r'^accounts/', include('profiles.backends.urls')),
+
     url(r'^$', direct_to_template, {"template": "homepage.html"}, name="home"),
+    url(r'^about/$', direct_to_template, {"template": "about.html"}, name="about"),
     url(r'^t/', include('brackets.urls')),
+    url(r'^sc2/', include('sc2match.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

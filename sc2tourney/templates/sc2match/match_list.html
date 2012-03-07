@@ -1,0 +1,20 @@
+{% extends "site_base.html" %}
+{% load staticfiles pagination_tags %}
+{% load url from future %}
+
+{% block head_title %}{{ object }} {{ block.super }}{% endblock %}
+
+{% block body %}
+<div class="span9">
+    {% autopaginate object_list %}
+    <h1>Latest Matches</h1>
+    {% for o in object_list %}
+    <div class="span6">
+        <h4><a href="{% url 'match_detail' o.id %}">{{ o }}</a></h4>
+    <div>
+    {% endfor %}
+    {% paginate %}
+</div>
+<div class="span3">
+</div>
+{% endblock %}

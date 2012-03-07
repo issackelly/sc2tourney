@@ -48,12 +48,16 @@ class Match(models.Model):
         super(Match, self).__init__(*args, **kwargs)
 
     def __unicode__(self):
-        return "(%s) over (%s) on %s in %s" % (
+        return "(%s) v. (%s) on %s in %s" % (
             ", ".join(["%s[%s]" % (p.player.username, p.race_letter) for p in self.winners]),
             ", ".join(["%s[%s]" % (p.player.username, p.race_letter) for p in self.losers]),
             self.mapfield,
             self.time_display
         )
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('match_detail', [self.id])
 
     @property
     def replay(self):
@@ -85,3 +89,6 @@ class Match(models.Model):
     def save(self, *args, **kwargs):
         self.modified = timezone.now()
         super(Match, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['-modified']

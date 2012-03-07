@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block head_title %}About {{ block.super }}{% endblock %}
+
+{% block body %}
+<div class="span9">
+    <h1>Woot!</h1>
+    <p>We have no idea whose idea this was. <a href="http://www.issackelly.com/">Issac</a> and <a href="http://toastdriven.com/">Daniel</a> are organizing it.
+
+    <p>The code is open source, it will live on <a href="https://github.com/issackelly/sc2tourney/">Github</a> for now.
+
+    <h3>Thanks</h3>
+    <ul>
+        <li><a href="https://github.com/GraylinKim/sc2reader">Graylin Kim for SC2Reader</a>
+        <li><a href="https://github.com/pinax/pinax_theme_bootstrap">Luke Hatcher for Pinax Theme Bootstrap</a>
+        <li><a href="https://bitbucket.org/ubernostrum/django-registration/">James Bennett for Django Registration</a>
+        <li>The Django and Python Core Teams</li>
+        <li>The Django and Python Core Teams</li>
+    </ul>
+</div>
+<div class="span3">
+</div>
+{% endblock %}

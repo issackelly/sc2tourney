@@ -1,0 +1,12 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block head_title %}{{ object }} {{ block.super }}{% endblock %}
+
+{% block body %}
+<div class="span9">
+    <h1>{{ object }}</h1>
+</div>
+<div class="span3">
+</div>
+{% endblock %}
