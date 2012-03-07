@@ -8,6 +8,7 @@
         <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
         <link href="{% static "bootstrap/less/bootstrap.less" %}" rel="stylesheet/less" type="text/css">
         <link href="{% static "bootstrap/less/responsive.less" %}" rel="stylesheet/less" type="text/css">
+        <link href="{% static "sc2tourney/overrides.css" %}" rel="stylesheet" type="text/css">
     {% endblock %}
 
     {% block script_base %}
@@ -29,11 +30,11 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </a>
-                            {% block site_brand %}<a class="brand" href="/">Starcraft II Tournament</a>{% endblock %}
+                            {% block site_brand %}<a class="brand" href="/">PyCon 2012 Starcraft II Tournament</a>{% endblock %}
                             <div class="nav-collapse">
                                 {% block nav %}
                                         <ul class="nav">
-                                            <li><a href="/t/pycon">Bracket</a></li>
+                                            <li><a href="/t/pycon-2012/">Bracket</a></li>
                                             <li><a href="/sc2/match/">Latest Matches</a></li>
                                             <li><a href="/about/">About</a></li>
                                             {% if not request.user.is_authenticated %}
@@ -53,12 +54,14 @@
 
 {% block body_base %}
     <div class="container">
+        <!--
         <div class="row">
             <div class="span12">
             {% include "_messages.html" %}
             </div>
         </div>
-        <div class="row">
+        -->
+        <div class="row main_container">
             {% block body %}
             {% endblock %}
         </div>
