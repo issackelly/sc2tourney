@@ -1,0 +1,123 @@
+body {
+    background-color: #195B96;
+    background-image: url('/site_media/static/sc2tourney/sc2_body_bg.png');
+}
+
+div.navbar div.navbar-inner {
+    background-image: url('/site_media/static/sc2tourney/header_bg.png');
+    background-repeat: repeat-x;
+    height: 50px;
+}
+
+div.navbar div.navbar-inner .brand {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+div.navbar .nav > li > a {
+    padding-top: 15px;
+}
+
+div.main_container {
+    background-color: #FFFFFF;
+    background-color: rgba(256, 256, 256, 0.6);
+    border: solid 2px #021228;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+div.main_container a {
+    color: #01279D;
+    text-shadow: #FFFFFF 0px 0px 2px;
+}
+
+div.main_container div.tournament_wrapper a {
+    color: #000000;
+    text-shadow: #FFFFFF 0px 0px 0px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+#footer {
+    background-color: #093B76;
+    bottom: 0px;
+    color: #FFFFFF;
+    margin-top: 30px;
+    padding: 10px;
+    /* position: fixed; */
+    text-align: center;
+    width: 100%;
+}
+
+.button,
+div.main_container .button,
+.button:visited,
+.button:hover {
+    background-image: url('/site_media/static/sc2tourney/sc2_wide_button.png');
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    height: 39px;
+    padding-top: 8px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: #FFFFFF 0px 0px 0px;
+    width: 263px;
+}
+
+
+/* Bracket-specific */
+.bracket {
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.bracket_name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.round {
+    float: left;
+    padding-left: 5px;
+}
+.round_name {
+    font-weight: bold;
+}
+.match {
+    border-bottom: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-top: solid 1px #000000;
+    /* float: left; */
+    height: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 200px;
+}
+.match_name {
+    font-weight: bold;
+}
+
+/* YAY MAGIC MATHS */
+.round_1 {}
+.round_2 {}
+.round_2 .match {
+    margin-top: 60px;
+    margin-bottom: 120px;
+}
+.round_3 {}
+.round_3 .match {
+    margin-top: 170px;
+    margin-bottom: 100px;
+}
+.round_4 {}
+.round_4 .match {
+    margin-top: 170px;
+    margin-bottom: 100px;
+}

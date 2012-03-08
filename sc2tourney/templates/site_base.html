@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% load url from future %}
 
+
 {% block head_title_base %}{% block head_title %}{% endblock %}Starcraft II Tournament{% endblock %}
 
         {% block topbar_base %}
@@ -14,11 +15,11 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </a>
-                            {% block site_brand %}<a class="brand" href="/">Starcraft II Tournament</a>{% endblock %}
+                            {% block site_brand %}<a class="brand" href="/">PyCon 2012 Starcraft II Tournament</a>{% endblock %}
                             <div class="nav-collapse">
                                 {% block nav %}
                                         <ul class="nav">
-                                            <li><a href="/t/pycon">Bracket</a></li>
+                                            <li><a href="/t/pycon-2012/">Bracket</a></li>
                                             <li><a href="/sc2/match/">Latest Matches</a></li>
                                             <li><a href="/accounts/">Players</a></li>
                                             <li><a href="/about/">About</a></li>
@@ -39,12 +40,14 @@
 
 {% block body_base %}
     <div class="container">
+        <!--
         <div class="row">
             <div class="span12">
             {% include "_messages.html" %}
             </div>
         </div>
-        <div class="row">
+        -->
+        <div class="row main_container">
             {% block body %}
             {% endblock %}
         </div>
@@ -52,4 +55,8 @@
 {% endblock %}
 
 
-{% block footer %}&copy; 2010-{% now "Y" %} Issac Kelly and Daniel Lindsley. <a href="{% url 'home' %}">Home</a>{% endblock %}
+{% block footer %}
+    &copy; 2010-{% now "Y" %} <a href="https://github.com/issackelly/">Issac Kelly</a>, <a href="https://github.com/toastdriven/">Daniel Lindsley, and <a href="https://github.com/mintchaos/">Christian Metts. <br>
+    All StarCraft II related imagery property of Blizzard Entertainment.<br>
+    <a href="{% url 'home' %}">Home</a>
+{% endblock %}

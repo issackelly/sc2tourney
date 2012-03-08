@@ -1,0 +1,9 @@
+<div class="round round_{{ forloop.counter }}">
+    <div class="round_name"><a href="{{ round.get_absolute_url }}">{{ round.name }}</a></div>
+
+    {% for match in round.matches.all %}
+        {% include "brackets/includes/match.html" %}
+    {% empty %}
+        <p>No matches available.</p>
+    {% endfor %}
+</div>

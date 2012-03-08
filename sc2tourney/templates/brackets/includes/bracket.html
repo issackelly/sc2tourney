@@ -1,0 +1,9 @@
+<div class="bracket">
+    <h3 class="bracket_name"><a href="{{ bracket.get_absolute_url }}">{{ bracket.name }}</a></h3>
+
+    {% for round in bracket.rounds.all %}
+        {% include "brackets/includes/round.html" %}
+    {% empty %}
+        <p>No rounds available.</p>
+    {% endfor %}
+</div>
