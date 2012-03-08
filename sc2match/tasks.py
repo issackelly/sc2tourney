@@ -1,6 +1,6 @@
 from sc2match.models import PlayerResult, Map, Match
 from profiles.models import Player
-from celery.decorators import task
+from celery.task import task
 
 
 def as_signal(sender, instance, created, raw, **kwargs):
