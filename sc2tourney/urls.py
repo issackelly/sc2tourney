@@ -10,8 +10,8 @@ from profiles.views import PlayerView, PlayerList
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/$', PlayerList.as_view(), name="player_list"),
-    url(r'^accounts/(?P<username>[\w0-9\.\-]+)/', PlayerView.as_view(), name="player_detail"),
     (r'^accounts/', include('profiles.backends.urls')),
+    url(r'^accounts/(?P<username>[\w0-9\.\-]+)/$', PlayerView.as_view(), name="player_detail"),
 
     url(r'^$', direct_to_template, {"template": "homepage.html"}, name="home"),
     url(r'^about/$', direct_to_template, {"template": "about.html"}, name="about"),
