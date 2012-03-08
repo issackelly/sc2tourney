@@ -3,54 +3,85 @@
 
 {% block head_title %}Home {{ block.super }}{% endblock %}
 
+{% block site_brand %}{% endblock %}
+
 {% block body %}
-<div class="span9">
-    <h2>GL HF!</h2>
 
-    <p>The <a href="http://us.pycon.org/2012/">PyCon 2012</a> SC2 tournament is coming. Everyone/anyone can play, regardless of experience level,
-    just for fun (and minor prizes). We'll try to pair the first round by hand
-    based on skill level.
-
-    <h3>Rules</h3>
-    <dl>
-        <dt>Entry
-        <dd>Entry is free but you must register by 2PM on Friday
-        <dt>Eligible Maps
-        <dd><ul>
-            <li>Cloud Kingdom LE (2)
-            <li>Entombed Valley (4)
-            <li>Antiga Shipyard (4)
-            <li>Metalopolis (4) (no close spawns)
-            <li>Korhal Compound LE (2)
-            <li>Shakuras Plateau (4) (no close spawns)
-            <li>Tal'darim Altar LE (4)
-            <li>The Shattered Temple (4) (no close spawns)
-            </ul>
-        <dt>Eligibility
-        <dd>We're trying to schedule an event for the finals, so you must be present
-            at PyCon to enter. Depending on the number of entrants, and our ability
-            to acquire a location, some rounds may happen asychronously.
-        <dt>Gameplay
-        <dd>Best of 3 &mdash; lower ranked (or coin toss if equal) picks first map, loser picks
-            after.
-        <dt>Prizes
-        <dd><ul>
-            <li>$25 amazon gift card for the winner [<a href="http://kellycreativetech.com/">Kelly Creative Tech</a>]
-            <li>$15 best match (determined by judges, who might be playing, judges can't vote on their own games) [<a href="http://kellycreativetech.com/">Kelly Creative Tech</a>]
-            <li>One T-Shirt from <a href="http://www.ownaj.com/">Ownaj</a> for 1st and 2nd place [<a href="http://toastdriven.com/">Toast Driven</a>]
-            </ul>
-        <dt>Other
-        <dd><ul>
-            <li>You must save and upload replays. We're going to do automatic analysis on them, hopefully it will speed things up, and maybe we can get fun data.
-            <li>You agree that we can make videos and cast the games
-            <li>If you'd like to cast some game(s) or donate a prize, or help, let us know <a href="https://twitter.com/issackelly">@issackelly</a> or <a href="https://twitter.com/daniellindsley">@daniellindsley</a>.
-            <li>Join the 'pycon' chatroom on Battle.net or <a href="https://pycon.disqus.com/threads/601712857">on Disqus's PyCon Conversation Tool</a>
-            </ul>
-    </dl>
-
-
-
+<div class="symbols">
+<span class="race r-python"><img src="/site_media/static/img/python.png"></span>
+<span class="race r-zerg"><img src="/site_media/static/img/zerg.png"></span>
+<span class="race r-terran"><img src="/site_media/static/img/terran.png"></span>
+<span class="race r-toss"><img src="/site_media/static/img/toss.png"></span>
 </div>
-<div class="span3">
+
+<h1 class="intro">PyCon 2012 Starcraft 2 Tournament</h1>
+
+<div class="hero-unit">
+    <div class="page-header">
+    <h1>GL HF! <small>(╯°□°）╯︵ ┻━┻</small></h1>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <p class="tagline">The <a href="http://us.pycon.org/2012/">PyCon 2012</a> SC2 tournament is coming. Everyone/anyone can play, regardless of experience level,
+            just for fun (and minor prizes). We'll try to pair the first round by hand
+            based on skill level.
+        </div>
+
+        <div class="span3 offset1">
+            <p>
+            <a href="/accounts/register"class="btn btn-primary btn-large">
+              Register now!
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="page-header">
+  <h1>Rules</h1>
+</div>
+
+<div class="row">
+    <div class="span5">
+            <h2>Entry</h2>
+            <p>Entry is free but you must register by 2PM on Friday
+            <h2>Eligibility</h2>
+            <p>We're trying to schedule an event for the finals, so you must be present
+                at PyCon to enter. Depending on the number of entrants, and our ability
+                to acquire a location, some rounds may happen asychronously.
+            <h2>Prizes</h2>
+            <ul>
+                <li>$25 amazon gift card for the winner [<a href="http://kellycreativetech.com/">Kelly Creative Tech</a>]
+                <li>$15 best match (determined by judges, who might be playing, judges can't vote on their own games) [<a href="http://kellycreativetech.com/">Kelly Creative Tech</a>]
+                <li>One T-Shirt from <a href="http://www.ownaj.com/">Ownaj</a> for 1st and 2nd place [<a href="http://toastdriven.com/">Toast Driven</a>]
+                </ul>
+            <h2>Other</h2>
+            <ul>
+                <li>You must save and upload replays. We're going to do automatic analysis on them, hopefully it will speed things up, and maybe we can get fun data.
+                <li>You agree that we can make videos and cast the games
+                <li>If you'd like to cast some game(s) or donate a prize, or help, let us know <a href="https://twitter.com/issackelly">@issackelly</a> or <a href="https://twitter.com/daniellindsley">@daniellindsley</a>.
+                <li>Join the 'pycon' chatroom on Battle.net or <a href="https://pycon.disqus.com/threads/601712857">on Disqus's PyCon Conversation Tool</a>
+                </ul>
+        </dl>
+    </div>
+    <div class="span5 offset1">
+        <dl>
+            <h2>Gameplay</h2>
+            <p>Best of 3 &mdash; lower ranked (or coin toss if equal) picks first map, loser picks
+                after.
+            <h2>Eligible Maps</h2>
+            <p>We're using the current season 1v1 ladder maps. Which are the Blizzard versions of these:</p>
+            <ul>
+                <li>Cloud Kingdom LE (2)
+                <li>Entombed Valley (4)
+                <li>Antiga Shipyard (4)
+                <li>Metalopolis (4) (no close spawns)
+                <li>Korhal Compound LE (2)
+                <li>Shakuras Plateau (4) (no close spawns)
+                <li>Tal'darim Altar LE (4)
+                <li>The Shattered Temple (4) (no close spawns)
+                </ul>
+
+    </div>
 </div>
 {% endblock %}

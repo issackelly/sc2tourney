@@ -1,0 +1,16 @@
+h1.intro { width:100%; text-align: center; font-family: 'Amatic SC', cursive; color: #33260F; margin: 1em 0 1em 0;}
+.symbols { overflow: auto;}
+.race { display:block; float: left; width: 24.9%; text-align: center;}
+
+.hero-unit h1 small { font-size: 36px; }
+.hero-unit .page-header { margin-top: 0;}
+
+.navbar .brand {
+background: url(/site_media/static/img/toolbarlogo.png) no-repeat 0 2px;
+width: 160px;
+height: 36px;
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+padding: 0 .5em 0 0 ;
+}
