@@ -5,7 +5,7 @@ from celery.decorators import task
 
 def as_signal(sender, instance, created, raw, **kwargs):
     if created:
-        parse_replay(instance.id)
+        parse_replay.delay(instance.id)
 
 @task
 def parse_replay(match_id):
