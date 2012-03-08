@@ -1,5 +1,13 @@
 {% extends "brackets/base.html" %}
 
 {% block body %}
+<div class="span12 tournament_wrapper">
+    <h2>Round {{ round.name }}</h2>
+
+    <p>
+        <a href="{{ round.bracket.get_absolute_url}}">&larr; Back To Bracket</a>
+    </p>
+
     {% include "brackets/includes/round.html" %}
+</div>
 {% endblock %}

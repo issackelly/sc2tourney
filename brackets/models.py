@@ -83,7 +83,7 @@ class Bracket(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('bracket_detail', [], {
+        return ('tournament_bracket_detail', [], {
             'tournament_slug': self.tournament.slug,
             'bracket_slug': self.slug,
         })
@@ -109,7 +109,7 @@ class Round(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('round_detail', [], {
+        return ('tournament_round_detail', [], {
             'tournament_slug': self.bracket.tournament.slug,
             'bracket_slug': self.bracket.slug,
             'round_slug': self.slug
@@ -171,7 +171,7 @@ class Match(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('match_detail', [], {
+        return ('tournament_match_detail', [], {
             'tournament_slug': self.the_round.bracket.tournament.slug,
             'bracket_slug': self.the_round.bracket.slug,
             'round_slug': self.the_round.slug,
