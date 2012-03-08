@@ -7,10 +7,10 @@
 {% block body %}
 <div class="span9">
     {% autopaginate object_list %}
-    <h1>Latest Matches</h1>
+    <h1>All Players</h1>
     {% for o in object_list %}
     <div class="span6">
-        <h4><a href="{% url 'match_detail' o.id %}">{{ o }}</a></h4>
+        <h4><a href="{% url 'player_detail' o.username %}">{{ o }}</a></h4>
     </div>
     {% endfor %}
     {% paginate %}
