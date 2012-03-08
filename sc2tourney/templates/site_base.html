@@ -3,6 +3,19 @@
 {% load url from future %}
 
 
+{% block extra_style %}
+<link href='http://fonts.googleapis.com/css?family=Amatic+SC:400' rel='stylesheet' type='text/css'>
+<link href='/site_media/static/css/base.css' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block extra_script %}
+<script type="text/javascript" src="/site_media/static/js/fittext.js"></script>
+
+<script type="text/javascript">
+$("h1.intro").fitText(1);
+</script>
+{% endblock %}
+
 {% block head_title_base %}{% block head_title %}{% endblock %}Starcraft II Tournament{% endblock %}
 
         {% block topbar_base %}
