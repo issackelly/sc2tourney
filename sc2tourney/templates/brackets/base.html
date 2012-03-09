@@ -1,3 +1,7 @@
 {% extends "site_base.html" %}
 
 {% block head_title %}Tournament {{ tournament.name }} {% endblock %}
+
+{% block extra_style %}
+<link href='/site_media/static/sc2tourney/overrides.css' rel='stylesheet' type='text/css'>
+{% endblock %}

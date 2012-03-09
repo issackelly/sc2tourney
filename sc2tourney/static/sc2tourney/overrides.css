@@ -1,3 +1,4 @@
+/*
 body {
     background-color: #195B96;
     background-image: url('/site_media/static/sc2tourney/sc2_body_bg.png');
@@ -50,10 +51,10 @@ h3 {
     color: #FFFFFF;
     margin-top: 30px;
     padding: 10px;
-    /* position: fixed; */
     text-align: center;
     width: 100%;
 }
+*/
 
 .button,
 div.main_container .button,
