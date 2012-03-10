@@ -9,5 +9,21 @@
     </p>
 
     {% include "brackets/includes/match.html" %}
+
+    {% if match.replays %}
+    <h3>Replays</h3>
+    <ul>
+    {% for replay in match.replays.all %}
+    <li><a href="{{ replay.replay_file.url }}">{{ replay }}</a></li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if request.user == match.player_1.player or request.user == match.player_2.player or request.user.is_superuser %}
+    <form method="POST" action="{% url tournament_match_upload tournament.slug, bracket.slug, round.slug, match.id %}" enctype="multipart/form-data">{% csrf_token %}
+        {{ form }}
+        <input type="submit" value="upload replay">
+    </form>
+    {% endif %}
 </div>
 {% endblock %}

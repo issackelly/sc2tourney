@@ -27,7 +27,7 @@ class Player(models.Model):
         ordering = ['player']
 
     def __unicode__(self):
-        return self.player
+        return self.player.username
 
     @models.permalink
     def get_absolute_url(self):
@@ -137,6 +137,7 @@ class Match(models.Model):
     player_1_score = models.CharField(max_length=32, blank=True, default='')
     player_2_score = models.CharField(max_length=32, blank=True, default='')
     notes = models.TextField(blank=True, default='')
+    replays = models.ManyToManyField("sc2match.Match", null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Matches'
