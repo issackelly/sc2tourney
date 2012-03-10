@@ -6,15 +6,16 @@
 
 {% block body %}
 <div class="span9">
-    {% autopaginate object_list %}
     <h1>All Players</h1>
+    <dl>
     {% for o in object_list %}
-    <div class="span6">
-        <h4><a href="{% url 'player_detail' o.username %}">{{ o }}</a></h4>
-    </div>
+    <dt>
+        <a href="{% url 'player_detail' o.username %}">{{ o }}</a>
+    </dt>
+    <dd>
+        <a href="{{ o.battle_net_url }}">Battle Net Profile</a>
+    </dd>
     {% endfor %}
-    {% paginate %}
-</div>
-<div class="span3">
+    </dl>
 </div>
 {% endblock %}
